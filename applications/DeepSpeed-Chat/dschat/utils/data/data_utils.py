@@ -19,6 +19,7 @@ from deepspeed.accelerator import get_accelerator
 
 
 def get_raw_dataset(dataset_name, output_path, seed, local_rank):
+    print(dataset_name, '\n', output_path, '\n', seed)
 
     if "Dahoas/rm-static" in dataset_name:
         return raw_datasets.DahoasRmstaticDataset(output_path, seed,

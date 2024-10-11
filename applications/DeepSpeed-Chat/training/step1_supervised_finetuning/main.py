@@ -61,6 +61,7 @@ def parse_args():
     parser.add_argument(
         "--model_name_or_path",
         type=str,
+        default='/home/yaohuayang/baoyue.shen/CODE/DeepSpeed/opt-1.3B',
         help=
         "Path to pretrained model or model identifier from huggingface.co/models.",
         required=True,
@@ -238,7 +239,8 @@ def main():
     additional_special_tokens = args.end_of_conversation_token if args.add_eot_token else None
     tokenizer = load_hf_tokenizer(args.model_name_or_path,
                                   fast_tokenizer=True,
-                                  add_special_tokens=additional_special_tokens)
+                                  add_special_tokens=additional_special_tokens,
+                                  )
 
     model = create_hf_model(AutoModelForCausalLM,
                             args.model_name_or_path,
